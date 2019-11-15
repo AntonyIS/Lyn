@@ -1,0 +1,45 @@
+Registration system in php
+    Create- Signup
+    Read - index page
+    Update - Details page
+    Delete - Details page
+    1.signup
+    -Create  html form for users to enter data
+    -Process the data sent by user using the HTML form
+        -grab data the data from the HTML form
+        -Check if user exists in the data using email(unique field) address
+            -if TRUE :
+                -Take user to login form to login
+            -if FALSE :
+                -Continue the reg process
+        -Insert user details into the database
+            First:
+                -Limit password length
+                    -if less than 8 characters take user to registration form to enter a strong password
+                -hash the password
+
+
+        -If everything is successfull, send user to the login form
+     2.Login
+     -Create login form
+     -process data sent by the user using the HTML form
+        -grab email and password from the form
+        -check if a user exist in the system(db)
+            -if True:
+                create sessions: admin, id, email
+                -Take user to the index page
+            -If False:
+                 -Ask user to :
+                    Try to login again
+                    Register into the system
+Read - index page
+    -Fetch data from the database and display the data
+    -Create links to details page for each individual data
+
+Update - Detail page
+    fetch data from the database using an id
+    Create update functionality
+Delete  - Detail page
+    Only admin can delete
+    Use id to delete record from the database
+    After successful deletion return user into the index page
