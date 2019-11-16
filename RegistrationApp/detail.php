@@ -2,7 +2,7 @@
 include 'header.php';
 include 'config.php';
 
-$usernmae = $email ='';
+$username = $email =$id ='';
 if(isset($_GET['id'])){
 //    grab id
     $id = $_GET['id'];
@@ -15,6 +15,7 @@ if(isset($_GET['id'])){
 //        grab individual data
         $username = $row['username'];
         $email = $row['email'];
+        $id = $row['id'];
 }
 ?>
 <!--Diplay data with update form-->
@@ -28,7 +29,8 @@ if(isset($_GET['id'])){
             </div>
         </div>
         <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6 shadow-lg p-1 mb-5 bg-white">
-            <form action="" method="post">
+            <form action="updatehandler.php" method="post">
+                <input type="number" name="id" value="<?php echo $id?>" hidden>
                 <div class="form-group">
                     <label for="">Username</label>
                     <input type="text" name="username" value="<?php echo $username?>" class="form-control">
@@ -38,7 +40,7 @@ if(isset($_GET['id'])){
                     <input type="email" name="email" value="<?php echo $email?>"  class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-info btn-lg" value="Update">
+                    <input type="submit"  name="btnUpdate" class="btn btn-info btn-lg" value="Update">
                     <input type="submit" class="btn btn-danger btn-lg" value="Delete">
                 </div>
             </form>
