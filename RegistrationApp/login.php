@@ -25,6 +25,9 @@ if(isset($_POST['loginBtn'])){
             session_start();
 //            create sessions
             $_SESSION['loggedin'] = true;
+//            add email session
+            $_SESSION['user'] = $email;
+            $_SESSION['id'] = $id;
 //            send user to index page
             $success_msg = "Login successful.";
             header('location:index.php?success_msg=' . $success_msg);
